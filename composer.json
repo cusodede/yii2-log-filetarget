@@ -19,6 +19,11 @@
 		"yiisoft/yii2": "~2.0.0"
 	},
 	"require-dev": {
+		"phpunit/phpunit": "^9.5",
+		"codeception/codeception": "^4.1",
+		"codeception/module-asserts": "^1.3",
+		"codeception/module-yii2": "^1.1",
+		"yiisoft/yii2-bootstrap4": "~2.0.10"
 	},
 	"autoload": {
 		"psr-4": {
