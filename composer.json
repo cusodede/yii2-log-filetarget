@@ -1,0 +1,43 @@
+{
+	"name": "cusodede/yii2-log-filetarget",
+	"description": "Extended Yii2 Log FileTarget",
+	"type": "yii2-extension",
+	"keywords": [
+		"log",
+		"filetarget"
+	],
+	"license": "GPL-3.0-or-later",
+	"minimum-stability": "dev",
+	"authors": [
+		{
+			"name": "Pavel Dubrovsky",
+			"email": "antikillerxxl@gmail.com"
+		}
+	],
+	"require": {
+		"php": ">=8.0",
+		"yiisoft/yii2": "~2.0.0"
+	},
+	"require-dev": {
+	},
+	"autoload": {
+		"psr-4": {
+			"cusodede\\log\\": "src"
+		}
+	},
+	"config": {
+		"process-timeout": 1800,
+		"fxp-asset": {
+			"enabled": false
+		},
+		"allow-plugins": {
+			"yiisoft/yii2-composer": true
+		}
+	},
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://asset-packagist.org"
+		}
+	]
+}
