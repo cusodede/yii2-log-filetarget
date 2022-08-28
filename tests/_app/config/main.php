@@ -1,7 +1,6 @@
 <?php /** @noinspection UsingInclusionReturnValueInspection */
 declare(strict_types = 1);
 
-use cusodede\log\FileTarget;
 use yii\caching\DummyCache;
 
 return [
@@ -10,7 +9,8 @@ return [
 	'bootstrap' => ['log'],
 	'aliases' => [
 		'@vendor' => './vendor',
-		'@tests' => './tests'
+		'@tests' => './tests',
+		'@app' => './tests/_app'
 	],
 	'components' => [
 		'request' => [
@@ -19,19 +19,5 @@ return [
 		'cache' => [
 			'class' => DummyCache::class,
 		],
-		'log' => [
-			'traceLevel' => 3,
-			'flushInterval' => 1,
-			'targets' => [
-				[
-					'class' => FileTarget::class,
-					'categories' => ['tests'],
-					'exportInterval' => 1,//выключаю буферизацию
-					'logVars' => [],
-					'enableRotation' => false,
-					'logFile' => fn():string => '@app/runtime/logs/ot-'.date('YmdHi').'.log'
-				]
-			]
-		]
 	],
 ];
