@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+
+  php80:
+    build:
+      context: ../..
+      dockerfile: tests/docker/php/8.0/Dockerfile
+    volumes:
+      - ./runtime/.composer80:/root/.composer
+      - ..:/code
+    dns: &php_dns
+      - 8.8.8.8
+      - 4.4.4.4
+    environment: &php_environment
+      POSTGRES_HOST: postgres-s3
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: s3
+      COMPOSER_ALLOW_SUPERUSER: 1
+    env_file: &php_envfile
+      - ../.env
+    networks: &php_networks
+      - net
+
+  php81:
+    build:
+      context: ../..
+      dockerfile: tests/docker/php/8.1/Dockerfile
+    volumes:
+      - ./runtime/.composer81:/root/.composer
+      - ..:/code
+    dns: *php_dns
+    environment: *php_environment
+    env_file: *php_envfile
+    networks: *php_networks
+
+networks:
+    net:
+        name: yii2_log_filetarget_net
