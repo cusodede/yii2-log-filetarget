@@ -24,7 +24,7 @@ class FileTargetTest extends Unit {
 		$dispatcher = new Dispatcher([
 			'logger' => $logger,
 			'targets' => [
-				'file' => [
+				[
 					'class' => FileTarget::class,
 					'logFile' => fn():string => '@app/runtime/logs/'.date('YmdH', $timestamp).'/ot-'.date('YmdHi', $timestamp).'.log',
 					'levels' => [],
